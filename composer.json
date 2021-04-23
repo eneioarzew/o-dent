@@ -1,0 +1,14 @@
+{
+    "name": "eneioarzew/egg-framework",
+    "description": "A lightweight PHP framework for quick project creation",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Julac Ontina",
+            "email": "eneioarzew@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
