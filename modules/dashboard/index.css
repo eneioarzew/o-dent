@@ -18,12 +18,10 @@ div#search {
 
 div#main-column {
     flex: 70%;
-    padding: 15px;
 }
 
 div#recent-logs {
     flex: 30%;
-    padding: 15px;
 }
 
 div.entries-container {
@@ -31,6 +29,7 @@ div.entries-container {
     width: 100%;
     background-color: #FAFAFA;
     overflow-y: auto;
+    padding: 0;
 }
 
 .entry-row {
