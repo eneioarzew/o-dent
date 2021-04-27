@@ -16,12 +16,11 @@
 body {
     margin: 0;
     padding: 15px 20px;
-    background-color: #FAFAFA;
+    background-color: #EEE;
 }
 
 input {
-    padding: 10px 25px;
-    margin: 10px 0px;
+    padding: 10px 15px;
     width: 200px;
     border-radius: 3px;
     box-shadow: 0px 8px 6px -6px rgba(0, 0, 0, .2);
@@ -37,7 +36,7 @@ input:focus {
 
 a.button {
     border-radius: 1000px;
-    font-size: 14px;
+    font-size: 1em;
     width: 150px;
     padding: 10px 25px;
     text-decoration: none;
@@ -64,7 +63,7 @@ div.notification {
     padding: 15px 20px;
     margin: 15px 0;
     border-radius: 2px;
-    background-color: #ddd;
+    background-color: #DDD;
     color: black;
     width: 400px;
 }
