@@ -7,8 +7,38 @@
     <link rel="stylesheet" href="../modules/dashboard/index.css">
 </head>
 <body>
-    <h1 class="heading"> Search patient </h1>
-    <input type="text" class="input" id="search-bar" placeholder="Search">
-    <a href="" class="button button-fill"> Search </a>
+    <div id="search-area">
+        <h1 class="heading"> Search patient </h1>
+        <input type="text" class="input" id="search-bar" placeholder="Search unique ID, first name, or last name">
+        <div id="search-results"> </div>
+    </div>
+
+    <h1 class="heading"> Create patient </h1>
+    <form action="#">
+        <div class="form-group">
+            <label for="first-name"> First Name </label>
+            <input type="text" class="input" id="first-name" placeholder="(e.g. Juan)">
+        </div>
+        <div class="form-group">
+            <label for="middle-initial"> Middle Initial </label>
+            <input type="text" class="input" id="middle-initial" placeholder="(e.g. A)">
+        </div>
+        <div class="form-group">
+            <label for="last-name"> Last Name </label>
+            <input type="text" class="input" id="last-name" placeholder="(e.g. Dela Cruz)">
+        </div>
+        <a class="button button-fill"> Submit </a>
+    </form>
+
+    <script src="../modules/commons/fetch.js"></script>
+    <script>
+        search_bar = document.querySelector("#search-bar")
+        search_bar.oninput = patientFetch
+
+        function patientFetch() {
+            search_bar_input = search_bar.value
+            fetch("patients", search_bar_input)
+        }
+    </script>
 </body>
 </html>

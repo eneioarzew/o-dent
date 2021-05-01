@@ -9,7 +9,8 @@ body {
 
 input#search-bar {
     width: 100%;
-    display: inline-block;
+    display: block;
+    box-sizing: border-box;
 }
 
 div#search {
@@ -72,6 +73,51 @@ section#details id {
 
 div.container#search {
     padding: 15px;
+}
+
+label {
+    display: block;
+}
+
+.form-group {
+    margin: 15px 0;
+}
+
+.form-group input {
+    width: 250px;
+}
+
+div#search-results {
+    position: absolute;
+    margin-top: 10px;
+    width: 80%;
+    border-radius: 3px;
+    box-shadow: 0px 8px 6px -6px rgba(0, 0, 0, .2);
+    background-color: #FFF;
+    outline: none;
+    font-size: 1em;
+    box-sizing: border-box;
+    display: none;
+}
+
+a.result-row {
+    padding: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    text-decoration: none;
+}
+
+a.result-row:hover {
+    background-color: #FBFBFB;
+}
+
+section#u_id_section {
+    padding: 0 10px 0 0;
+}
+
+section#name_section {
+    padding: 0;
 }
 
 @media only screen and (max-width: 800px) {

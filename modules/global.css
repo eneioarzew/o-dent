@@ -45,12 +45,18 @@ a.button {
     display: inline-block;
     font-size: 1em;
     text-align: center;
+    cursor: pointer;
 }
 
 a.button-fill {
     color: #FFF;
     border: 2px solid #B0DA96;
     background-color: #B0DA96;
+}
+
+a.button-fill:hover {
+    border: 2px solid #a6cf8c;
+    background-color: #a6cf8c;
 }
 
 a.button-outline {
@@ -90,5 +96,9 @@ div.column {
 
 section {
     padding: 7.5px 0;
+    display: block;
+}
+
+form-group {
     display: block;
 }
