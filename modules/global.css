@@ -5,21 +5,13 @@
     color: #333;
 }
 
-.fore-dark {
-    color: #538235;
-}
-
-.fore-light {
-    color: #B0DA96;
-}
-
 body {
     margin: 0;
     padding: 15px 20px;
     background-color: #EEE;
 }
 
-input {
+.input {
     padding: 10px 15px;
     width: 200px;
     border-radius: 3px;
@@ -30,7 +22,7 @@ input {
     font-size: 1em;
 }
 
-input:focus {
+.input:focus {
     box-shadow: 0px 0px 2px 2px #B0DA96;
 }
 
@@ -50,28 +42,23 @@ a.button {
 
 a.button-fill {
     color: #FFF;
-    border: 2px solid #B0DA96;
-    background-color: #B0DA96;
+    border: 2px solid rgb(89, 156, 42);
+    background-color: rgb(89, 156, 42);
 }
 
 a.button-fill:hover {
-    border: 2px solid #a6cf8c;
-    background-color: #a6cf8c;
+    border-color: rgb(78, 141, 33);
+    background-color: rgb(78, 141, 33);
 }
 
 a.button-outline {
-    color: #B0DA96;
-    border: 2px solid #B0DA96;
+    color: rgb(89, 156, 42);
+    border: 2px solid rgb(89, 156, 42);
     background-color: #FFF;
 }
 
-div.notification {
-    padding: 15px 20px;
-    margin: 15px 0;
-    border-radius: 2px;
-    background-color: #DDD;
-    color: black;
-    width: 400px;
+a.button-outline:hover {
+    border-color: rgb(78, 141, 33);
 }
 
 table th, table td {
@@ -102,3 +89,41 @@ section {
 form-group {
     display: block;
 }
+
+/* Notification Banner CSS */
+div.notification {
+    padding: 20px 30px;
+    outline-offset: -1px;
+    box-shadow: 0px 6px 6px -6px rgba(0, 0, 0, .3);
+    max-width: 500px;
+    display: block;
+    color: white;
+    border-radius: 5px;
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    opacity: 0;
+    transition: opacity .3s;
+}
+
+div.notification[dark] {
+    background-color: 5px solid #444;
+}
+
+div.notification[light] {
+    background-color: 5px solid #DDD;
+    color: #222;
+}
+
+div.notification[good] {
+    background-color: rgb(89, 156, 42);
+}
+
+div.notification[bad] {
+    background-color: 5px solid rgb(222, 164, 2);
+}
+
+div.notification[really-bad] {
+    background-color: 5px solid rgb(201, 81, 48);
+}
+/*   */

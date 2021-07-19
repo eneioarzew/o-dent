@@ -2,43 +2,105 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     <title> Dashboard | O-Dent </title>
     <link rel="stylesheet" href="../modules/global.css">
     <link rel="stylesheet" href="../modules/dashboard/index.css">
+    <script src="../modules/commons/fetch.js" defer></script>
+    <script src="../modules/commons/upload.js" defer></script>
+    <script src="../modules/dashboard/index.js" defer></script>
 </head>
 <body>
-    <div id="search-area">
-        <h1 class="heading"> Search patient </h1>
-        <input type="text" class="input" id="search-bar" placeholder="Search unique ID, first name, or last name">
-        <div id="search-results"> </div>
-    </div>
-
-    <h1 class="heading"> Create patient </h1>
-    <form action="#">
-        <div class="form-group">
-            <label for="first-name"> First Name </label>
-            <input type="text" class="input" id="first-name" placeholder="(e.g. Juan)">
+    <section>
+        <div id="search-area">
+            <h1 class="heading"> Search patient </h1>
+            <input type="text" class="input" id="search-bar" placeholder="Search unique ID, first name, or last name">
+            <div id="search-results"> </div>
         </div>
-        <div class="form-group">
-            <label for="middle-initial"> Middle Initial </label>
-            <input type="text" class="input" id="middle-initial" placeholder="(e.g. A)">
-        </div>
-        <div class="form-group">
-            <label for="last-name"> Last Name </label>
-            <input type="text" class="input" id="last-name" placeholder="(e.g. Dela Cruz)">
-        </div>
-        <a class="button button-fill"> Submit </a>
-    </form>
+    </section>
 
-    <script src="../modules/commons/fetch.js"></script>
-    <script>
-        search_bar = document.querySelector("#search-bar")
-        search_bar.oninput = patientFetch
+    <section>
+        <h1 class="heading"> Create patient </h1>
+        <form action="#" id="create-patient">
+            <div class="form-group">
+                <input type="text" class="input form-input" id="first-name" placeholder="First Name (e.g. Juan)">
+                <input type="text" class="input form-input" id="middle-initial" placeholder="Middle Initial (e.g. A)">
+                <input type="text" class="input form-input" id="last-name" placeholder="Last Name (e.g. Dela Cruz)">
+            </div>
+            <div class="form-group">
+                <select class="input form-input" id="sex">
+                    <option value=""> Sex </option>
+                    <option value="MALE"> Male </option>
+                    <option value="FEMALE"> Female </option>
+                    <option value="OTHER"> Other </option>
+                </select>
+                <select class="input form-input" id="civil-status">
+                    <option value=""> Civil Status </option>
+                    <option value="SINGLE"> Single </option>
+                    <option value="MARRIED"> Married </option>
+                    <option value="SEPARATED"> Separated </option>
+                    <option value="WIDOWED"> Widowed </option>
+                </select>
+                <input type="text" class="input form-input" id="nationality" placeholder="Nationality (e.g. Filipino)">
+                <select class="input form-input" id="religion">
+                    <option value=""> Religion </option>
+                    <option value="CHRISTIAN"> Christian </option>
+                    <option value="CATHOLIC"> Catholic </option>
+                    <option value="MUSLIM"> Muslim </option>
+                    <option value="OTHER"> Other </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="text" class="input form-input" id="address" placeholder="Address (e.g. 12 Kawayan St.)"
+                    style="width: 450px">
+                <input type="text" class="input form-input" id="occupation" placeholder="Occupation (e.g. Student)">
+            </div>
+            <div class="form-group">
+                <input type="text" class="input form-input" id="home-phone" placeholder="Home Phone (e.g. 6225927)">
+                <input type="text" class="input form-input" id="work-phone" placeholder="Work Phone (e.g. 9274454)">
+                <input type="text" class="input form-input" id="mobile-phone" placeholder="Mobile Phone (e.g. 09174649934)">
+            </div>
+        </form>
+    </section>
 
-        function patientFetch() {
-            search_bar_input = search_bar.value
-            fetch("patients", search_bar_input)
-        }
-    </script>
+    <section>
+        <h1 class="heading"> Add transactions </h1>
+        <form action="#" id="add-transactions">
+            <div class="form-group">
+                <input type="date" class="input form-input" id="date">
+                <input type="text" class="input form-input" id="remarks" placeholder="Remarks (e.g. EXO 20, 25)">
+                <input type="number" class="input form-input" id="amount-charged" placeholder="Amount charged (e.g. 1200)">
+                <input type="number" class="input form-input" id="amount-paid" placeholder="Amount paid (e.g. 1200)">
+            </div>
+            <div class="form-group">
+                <input type="date" class="input form-input" id="date">
+                <input type="text" class="input form-input" id="remarks" placeholder="Remarks (e.g. EXO 20, 25)">
+                <input type="number" class="input form-input" id="amount-charged" placeholder="Amount charged (e.g. 1200)">
+                <input type="number" class="input form-input" id="amount-paid" placeholder="Amount paid (e.g. 1200)">
+            </div>
+            <div class="form-group">
+                <input type="date" class="input form-input" id="date">
+                <input type="text" class="input form-input" id="remarks" placeholder="Remarks (e.g. EXO 20, 25)">
+                <input type="number" class="input form-input" id="amount-charged" placeholder="Amount charged (e.g. 1200)">
+                <input type="number" class="input form-input" id="amount-paid" placeholder="Amount paid (e.g. 1200)">
+            </div>
+            <div class="form-group">
+                <input type="date" class="input form-input" id="date">
+                <input type="text" class="input form-input" id="remarks" placeholder="Remarks (e.g. EXO 20, 25)">
+                <input type="number" class="input form-input" id="amount-charged" placeholder="Amount charged (e.g. 1200)">
+                <input type="number" class="input form-input" id="amount-paid" placeholder="Amount paid (e.g. 1200)">
+            </div>
+            <div class="form-group">
+                <input type="date" class="input form-input" id="date">
+                <input type="text" class="input form-input" id="remarks" placeholder="Remarks (e.g. EXO 20, 25)">
+                <input type="number" class="input form-input" id="amount-charged" placeholder="Amount charged (e.g. 1200)">
+                <input type="number" class="input form-input" id="amount-paid" placeholder="Amount paid (e.g. 1200)">
+            </div>
+        </form>
+    </section>
+
+    <section>
+        <a class="button button-fill" id="submit-button"> Submit </a>
+    </section>
 </body>
 </html>

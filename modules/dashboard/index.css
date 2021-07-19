@@ -79,14 +79,6 @@ label {
     display: block;
 }
 
-.form-group {
-    margin: 15px 0;
-}
-
-.form-group input {
-    width: 250px;
-}
-
 div#search-results {
     position: absolute;
     margin-top: 10px;
@@ -98,6 +90,8 @@ div#search-results {
     font-size: 1em;
     box-sizing: border-box;
     display: none;
+    opacity: 0;
+    transition: opacity .3s;
 }
 
 a.result-row {
@@ -118,6 +112,18 @@ section#u_id_section {
 
 section#name_section {
     padding: 0;
+}
+
+div.form-group {
+    display: flex;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+div.form-group input.input {
+    flex: 100%;
+    width: 250px;
+    transition: box-shadow .3s;
 }
 
 @media only screen and (max-width: 800px) {

@@ -8,6 +8,8 @@ class PatientsController {
 		return $response;
 	}
 
-	
+	public function upload() {
+		return "FAIL";
+	}
 
 }

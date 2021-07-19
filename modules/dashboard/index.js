@@ -1,54 +1,3 @@
-patients = {
-    "21-00015132": {
-        "id": "21-00015132",
-        "last-name": "Ontina",
-        "first-name": "Julac Raphael",
-        "middle-initial": "V",
-    },
-    "21-00023623": {
-        "id": "21-00023623",
-        "last-name": "Ontina",
-        "first-name": "Joan",
-        "middle-initial": "V",
-    },
-    "21-00015131": {
-        "id": "21-00015131",
-        "last-name": "Ontina",
-        "first-name": "Julac Raphael",
-        "middle-initial": "V",
-    },
-    "21-00023621": {
-        "id": "21-00023621",
-        "last-name": "Ontina",
-        "first-name": "Joan",
-        "middle-initial": "V",
-    },
-}
-
-transactions = {
-    "21-00000012": {
-        "id": "21-00000012",
-        "patient-id": "21-00015132",
-        "date-created": "05/12/2020",
-    },
-    "21-00000011": {
-        "id": "21-00000011",
-        "patient-id": "21-00023623",
-        "date-created": "03/12/2020",
-    },
-}
-
-recent_logs = {
-    "21-000000354": {
-        "id": "21-000000354",
-        "date-created": "05/12/2020",
-    },
-    "21-000000355": {
-        "id": "21-000000355",
-        "date-created": "03/12/2020",
-    },
-}
-
 function loadPatients() {
     patients_container = document.querySelector("#patients")
 
@@ -69,12 +18,12 @@ function loadPatients() {
             patient_id = document.createElement("id")
             patient_id.innerText = "#" + patients[key]["id"]
             patient_id.innerText.italics()
-        
+
             last_name = patients[key]["last-name"].bold()
 
             patient_name = document.createElement("name")
             patient_name.innerHTML += last_name + ", " + patients[key]["first-name"] + " " + patients[key]['middle-initial']
-        
+
             section.append(patient_id)
             section.append(patient_name)
 
@@ -179,6 +128,56 @@ function loadLogs() {
     }
 }
 
-loadPatients()
-loadTransactions()
-loadLogs()
+function patientFetch() {
+    search_bar_input = search_bar.value
+    fetch("patients", search_bar_input)
+}
+
+function clearError(field) {
+    field.oninput = function () {
+        if (field.value !== "") {
+            setTimeout(function () {
+                field.style.boxShadow = "0px 6px 6px -6px rgba(0, 0, 0, .3)"
+            }, 100)
+        }
+    }
+}
+
+body = document.querySelector("body")
+
+search_bar = document.querySelector("#search-bar")
+search_bar.oninput = patientFetch
+
+submit_button = document.querySelector("#submit-button")
+form = document.querySelector("form #create-patient")
+form_inputs = Array.from(document.querySelectorAll("form .form-input"))
+
+form_inputs.forEach(clearError)
+
+submit_button.onclick = function () {
+    form_validity = true;
+    for (i = 0; i < form_inputs.length; i++) {
+        field = form_inputs[i]
+        if (field.value === "") {
+            field.style.boxShadow = "0px 0px 6px #E34848"
+            form_validity = false;
+        }
+    }
+
+    if (form_validity === true) {
+        inputs = {}
+        
+
+        upload("patients", JSON.stringify(inputs))
+    }
+}
+
+body.onclick = function () {
+    search_results = document.querySelector("div#search-results");
+
+    search_results.style.opacity = "0"
+    
+    setTimeout(function () {
+        search_results.style.display = "none"
+    }, 300)
+}
